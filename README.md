@@ -1,18 +1,16 @@
-# Salesforce DX Project: Next Steps
+# Project Setup
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+- Make sure sfdx cli is installed
+    - https://developer.salesforce.com/docs/atlas.en-us.230.0.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm
+- Create a scratch org `sfdx force:org:create -a {name-of-org} -f .\config\project-scratch-def.json`
+- Source push resources `sfdx force:source:push -u {name-of-org}`        
+- Assign Permission Set `sfdx force:user:permset:assign -n Contract_Data_Base -u {name-of-org}`  
+- Populate Test Data `sfdx force:data:tree:import -p Data\Account-Contract_Data__c-External_Data__c-plan.json -u {name-of-org}`
 
-## How Do You Plan to Deploy Your Changes?
+# Run Tests
+- Run apex tests in the scratch org with this command `sfdx force:apex:test:run -w 10 -u {name-of-org} -c -r human`
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+# Data Export
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- If additional fields are added to the test data objects, you can update the soql in `scripts/soql/account.soql` to include this data
+- Then, you can run the following script to populate the new data `sfdx force:data:tree:export -q .\scripts\soql\account.soql -d Data -p -u {name-of-org}`
