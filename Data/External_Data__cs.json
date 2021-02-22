@@ -1,0 +1,39 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "External_Data__c",
+                "referenceId": "External_Data__cRef1"
+            },
+            "Account__c": "@AccountRef1"
+        },
+        {
+            "attributes": {
+                "type": "External_Data__c",
+                "referenceId": "External_Data__cRef2"
+            },
+            "Account__c": "@AccountRef1"
+        },
+        {
+            "attributes": {
+                "type": "External_Data__c",
+                "referenceId": "External_Data__cRef3"
+            },
+            "Account__c": "@AccountRef3"
+        },
+        {
+            "attributes": {
+                "type": "External_Data__c",
+                "referenceId": "External_Data__cRef4"
+            },
+            "Account__c": "@AccountRef3"
+        },
+        {
+            "attributes": {
+                "type": "External_Data__c",
+                "referenceId": "External_Data__cRef5"
+            },
+            "Account__c": "@AccountRef3"
+        }
+    ]
+}
