@@ -1,10 +1,10 @@
 <template>
-    <ul>
-        <template for:each={contractDatas.data} for:item="contractData">
-            <li key={contractData.Name}>
-                {contractData.Name}
-                <lightning-formatted-date-time value={contractData.Review_Date__c} year="numeric" month="numeric" day="numeric"></lightning-formatted-date-time>
-            </li>
-        </template>
-    </ul>
+    <div class='slds-box slds-theme_default'>
+        <div class='slds-text-heading_large'>Contract Data</div>
+        <lightning-datatable 
+            key-field="id" 
+            data={contractDatas.data} 
+            columns={dataColumns}>
+        </lightning-datatable>
+    </div>
 </template>

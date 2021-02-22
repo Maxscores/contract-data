@@ -6,4 +6,22 @@ export default class ContractDataViewer extends LightningElement {
 
     @wire(loadContractDataByAccount, {accountId: '$recordId'})
     contractDatas;
+
+    
+    dataColumns = [
+        {
+            label: 'Name', 
+            fieldName: 'Name',
+        },
+        {
+            label: 'Review Date',
+            fieldName: 'Review_Date__c',
+            type: 'date',
+            typeAttributes:{
+                month: 'numeric',
+                day: 'numeric',
+                year: 'numeric',
+            },
+        }
+    ];
 }
